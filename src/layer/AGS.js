@@ -1,7 +1,7 @@
 lvector.AGS = lvector.EsriJSONLayer.extend({
     initialize: function(options) {
         
-        // Check for required parameters
+        // Check for GS parameters
         for (var i = 0, len = this._requiredParams.length; i < len; i++) {
             if (!options[this._requiredParams[i]]) {
                 throw new Error("No \"" + this._requiredParams[i] + "\" parameter found.");
@@ -10,7 +10,7 @@ lvector.AGS = lvector.EsriJSONLayer.extend({
         
         // _globalPointer is a string that points to a global function variable
         // Features returned from a JSONP request are passed to this function
-        this._globalPointer = "AGS_" + Math.floor(Math.random() * 100000);
+        this._globalPointer = "AGS_" + options.ags;/*Math.floor(Math.random() * 100000)*/;//instead of a random number, use the layer options to specify unique identifer for generated url.
         window[this._globalPointer] = this;
         
         // If the url wasn't passed with a trailing /, add it.

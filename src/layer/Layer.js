@@ -9,6 +9,7 @@ lvector.Layer = L.Class.extend({
     //
     options: {
         fields: "",
+		ags: "", //option to set non-random AGS call to server by specifying a unique parameter instead of a random number
         scaleRange: null,
         map: null,
         uniqueField: null,
